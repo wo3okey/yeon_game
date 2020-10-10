@@ -22,7 +22,8 @@ body {
 .board-column {
     float: left;
     margin-right: 10px;
-    background-image: url("../img/cat2.jpg");
+    background-image: url("../img/jam.png");
+    background-size: cover;
 }
 
 .right-column {
