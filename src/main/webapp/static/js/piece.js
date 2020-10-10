@@ -14,6 +14,12 @@ class Piece {
   }
 
   draw() {
+    // const img = new Image();
+    // img.src = '/static/img/cat2.jpg';
+    // const pattern = ctx.createPattern(img, 'repeat');
+    //
+    //
+    // this.ctx.fillStyle = pattern;
     this.ctx.fillStyle = this.color;
     this.shape.forEach((row, y) => {
       row.forEach((value, x) => {

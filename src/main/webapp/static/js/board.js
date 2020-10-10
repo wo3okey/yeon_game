@@ -12,6 +12,21 @@ class Board {
 
     // Scale so we don't need to give size on every draw.
     this.ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
+
+    console.log(ctx);
+    for (var i = BLOCK_SIZE; i < COLS * BLOCK_SIZE; i += BLOCK_SIZE)
+    {
+      ctx.beginPath();
+      ctx.moveTo(0, i);
+      ctx.lineTo(canvas.width, i);
+      ctx.stroke();
+    }
+    for (var i = BLOCK_SIZE; i < ROWS * BLOCK_SIZE; i += BLOCK_SIZE)
+    {
+      ctx.moveTo(i, 0);
+      ctx.lineTo(i,canvas.width / 2);
+      ctx.stroke();
+    }
   }
 
   reset() {
