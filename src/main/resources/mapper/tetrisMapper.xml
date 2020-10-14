@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yeon.game.tetris.mapper.TetrisMapper">
+    <select id="selectRank2" resultType="com.yeon.game.tetris.model.TetrisRank">
+        SELECT NO
+              ,ID
+              ,SCORE
+              ,RANK
+              ,DATE
+          FROM TETRIS_RANK
+          LIMIT 1
+    </select>
+</mapper>

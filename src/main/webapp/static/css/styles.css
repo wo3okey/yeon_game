@@ -27,9 +27,50 @@ body {
 }
 
 .right-column {
-    display: flex;
-    /*flex-direction: column;*/
+    display: grid;
     justify-content: space-between;
+}
+
+.board-score {
+    list-style: none;
+    padding-left: 0px;
+    font-size: 8px;
+    line-height: 1.5em;
+}
+
+.bottom-column {
+    float: left;
+    width: 400px;
+}
+
+.button-set1 {
+    text-align: center;
+    padding: 20px;
+    float: left;
+}
+
+.button-set2 {
+    padding-top: 40px;
+    float: left;
+}
+
+.bottom-column2 {
+    width: 90%;
+    text-align: right;
+}
+
+.direct-button {
+    width: 60px;
+    height: 60px;
+    background-color: darkgrey;
+    opacity: 0.3;
+}
+
+.drop-button {
+    width: 100px;
+    height: 100px;
+    background-color: darkgrey;
+    opacity: 0.3;
 }
 
 .right-column #title {
@@ -37,7 +78,7 @@ body {
 }
 
 .right-column p {
-    font-size: 5px;
+    font-size: 8px;
 }
 
 .game-board {
@@ -45,10 +86,8 @@ body {
     float: left;
 
     background-size: 25px 100%;
-    background-image: linear-gradient(to right,
-    black 0%,
-    transparent 5%,
-    transparent 100%);
+    background-image: linear-gradient(to right, white 0%, transparent 5%, transparent 10%);
+    opacity: 0.9;
 }
 
 .play-button {
@@ -57,8 +96,8 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     cursor: pointer;
-    bottom: 0px;
-    position: absolute;
+    /*bottom: 0px;*/
+    /*position: absolute;*/
 }
 
 #pause-btn {
@@ -68,8 +107,16 @@ body {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
-    .play-button {
+@media screen and (min-width: 768px) {
+    .bottom-column2 {
+        display: none;
+    }
 
+    .bottom-column {
+        display: none;
+    }
+
+    .drop-button {
+        display: none;
     }
 }

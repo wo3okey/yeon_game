@@ -41,7 +41,6 @@ const moves = {
 let board = new Board(ctx, ctxNext);
 
 initNext();
-//TODO:최고점처리
 // showHighScores();
 
 function initNext() {
@@ -116,6 +115,46 @@ function play() {
   document.querySelector('#pause-btn').style.display = 'block';
 }
 
+function moveUp() {
+
+    let p = moves[KEY.UP](board.piece);
+    if (board.valid(p)) {
+        board.piece.move(p);
+    }
+}
+
+function moveDown() {
+    let p = moves[KEY.DOWN](board.piece);
+    if (board.valid(p)) {
+        board.piece.move(p);
+    }
+}
+
+function moveLeft() {
+    let p = moves[KEY.LEFT](board.piece);
+    if (board.valid(p)) {
+      board.piece.move(p);
+  }
+}
+
+function moveRight() {
+    let p = moves[KEY.RIGHT](board.piece);
+    if (board.valid(p)) {
+        board.piece.move(p);
+    }
+}
+
+function moveDrop() {
+    let p = moves[KEY.SPACE](board.piece);
+    // Hard drop
+    while (board.valid(p)) {
+        account.score += POINTS.HARD_DROP;
+        board.piece.move(p);
+        p = moves[KEY.DOWN](board.piece);
+    }
+    board.piece.hardDrop();
+}
+
 function animate(now = 0) {
   time.elapsed = now - time.start;
   if (time.elapsed > time.level) {
@@ -168,32 +207,32 @@ function pause() {
   document.querySelector('#play-btn').style.display = 'block';
   document.querySelector('#pause-btn').style.display = 'none';
 }
-//
-// function showHighScores() {
-//   const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-//   const highScoreList = document.getElementById('highScores');
-//
-//   highScoreList.innerHTML = highScores
-//     .map((score) => `<li>${score.score} - ${score.name}`)
-//     .join('');
-// }
 
-// function checkHighScore(score) {
-//   const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-//   const lowestScore = highScores[highScores.length - 1]?.score ?? 0;
-//
-//   if (score > lowestScore || highScores.length < NO_OF_HIGH_SCORES) {
-//     const name = prompt('You got a highscore! Enter name:');
-//     const newScore = { score, name };
-//     saveHighScore(newScore, highScores);
-//     showHighScores();
-//   }
-// }
-//
-// function saveHighScore(score, highScores) {
-//   highScores.push(score);
-//   highScores.sort((a, b) => b.score - a.score);
-//   highScores.splice(NO_OF_HIGH_SCORES);
-//
-//   localStorage.setItem('highScores', JSON.stringify(highScores));
-// }
+function showHighScores() {
+  const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+  const highScoreList = document.getElementById('highScores');
+
+  highScoreList.innerHTML = highScores
+    .map((score) => `<li>${score.score} - ${score.name}`)
+    .join('');
+}
+
+function checkHighScore(score) {
+  const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+  const lowestScore = highScores[highScores.length - 1]?.score ?? 0;
+
+  if (score > lowestScore || highScores.length < NO_OF_HIGH_SCORES) {
+    const name = prompt('You got a highscore! Enter name:');
+    const newScore = { score, name };
+    saveHighScore(newScore, highScores);
+    showHighScores();
+  }
+}
+
+function saveHighScore(score, highScores) {
+  highScores.push(score);
+  highScores.sort((a, b) => b.score - a.score);
+  highScores.splice(NO_OF_HIGH_SCORES);
+
+  localStorage.setItem('highScores', JSON.stringify(highScores));
+}
