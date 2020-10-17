@@ -2,32 +2,42 @@ package com.yeon.game.tetris.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "tetris_rank", schema = "yeon_game")
 public class TetrisRank {
 
-    TetrisRank() {}
+    public TetrisRank(String name, int score, Date date) {
+        this.userName = name;
+        this.tetrisScore = score;
+        this.rankDate = date;
+    }
+
+    public TetrisRank() {
+
+    }
 
     @Id
-    @Column(name = "NO")
+    @Column(name = "RANK_NO")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int no;
+    int rankNo;
 
-    @Column(name = "ID")
-    String id;
+    @Column(name = "USER_NAME")
+    String userName;
 
-    @Column(name = "SCORE")
-    String score;
+    @Column(name = "TETRIS_SCORE")
+    int tetrisScore;
 
-    @Column(name = "RANK")
-    int rank;
+    @Column(name = "TETRIS_RANK")
+    int tetrisRank;
 
-    @Column(name = "DATE")
-    Date date;
+    @Column(name = "RANK_DATE")
+    Date rankDate;
 }

@@ -8,9 +8,5 @@ import java.util.List;
 
 public interface TetrisRankRepository extends JpaRepository<TetrisRank, Long> {
 
-//    @Query("select m from tetris_rank")
-    List<TetrisRank> findAll();
-
-//    @Query("select m from TetrisRank m where m.no = ?1")
-    TetrisRank findByNo(int no);
+    List<TetrisRank> findTop5ByOrderByTetrisScoreDesc();
 }
