@@ -35,7 +35,7 @@ body {
     list-style: none;
     padding-left: 0px;
     font-size: 8px;
-    line-height: 1.5em;
+    line-height: 2em;
 }
 
 .bottom-column {
@@ -98,6 +98,15 @@ body {
     cursor: pointer;
     /*bottom: 0px;*/
     /*position: absolute;*/
+}
+
+.reset-button {
+    background-color: #4caf50;
+    font-size: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    color: red;
 }
 
 #pause-btn {

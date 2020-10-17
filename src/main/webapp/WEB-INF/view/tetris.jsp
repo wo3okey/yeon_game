@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +23,7 @@
     <div class="right-column">
         <button id="play-btn" onclick="play()" class="play-button">Play</button>
         <button id="pause-btn" onclick="pause()" class="play-button">Pause</button>
+        <button id="reset-btn" onclick="reset()" class="reset-button">Reset</button>
         <br>
         <div>
             <p>Score: <span id="score">0</span></p>
@@ -30,13 +32,13 @@
             <canvas id="next" class="next"></canvas>
             <br><br><br><br>
             <div class="board-score">
-                updating..T_T<br><br>
-                <span>[Rank]</span>
+                <span>[Top5]</span>
                 <c:forEach var="item" items="${rankList}" varStatus="status">
-                   <li>1. <c:out value="${item.id}"/>-<c:out value="${item.score}"/></li>
+
+                   <li>${status.count}.
+                       <c:out value="${item.userName}"/>-<fmt:formatNumber type="number" maxFractionDigits="3" value="${item.tetrisScore}"/>
+                   </li>
                 </c:forEach>
-                <li>2. yeon-32,603</li>
-                <li>3. jam-12,701</li>
             </div>
         </div>
 
@@ -59,7 +61,8 @@
     </div>
 </div>
 
-
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="../../static/js/constants.js"></script>
 <script type="text/javascript" src="../../static/js/board.js"></script>
 <script type="text/javascript" src="../../static/js/piece.js"></script>

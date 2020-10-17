@@ -23,11 +23,7 @@ public class TetrisController {
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("tetris");
-        // 전달 할 jap 페이지
-
-        List<TetrisRank> list = tetrisService.getTetrisRankList();
-
-        modelAndView.addObject("rankList", list);
+        modelAndView.addObject("rankList", tetrisService.getTetrisRankList());
         return modelAndView;
     }
 }

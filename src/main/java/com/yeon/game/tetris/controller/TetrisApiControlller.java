@@ -14,14 +14,13 @@ public class TetrisApiControlller {
         this.tetrisService = tetrisService;
     }
 
-    @GetMapping(value = "/{no}")
+    @PostMapping(value = "/test")
     @ResponseBody
-    public TetrisRank getTetrisByNo(@PathVariable("no") int no) {
-        System.out.println("###########################");
-        System.out.println(no);
-        System.out.println(tetrisService.getTetrisByNo(no).toString());
-        System.out.println("###########################");
-        return tetrisService.getTetrisByNo(no);
+    public TetrisRank getTetrisByNo(
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "score", required = false) int score) {
+        System.out.println(name);
+        return tetrisService.insertTetrisRank(name, score);
     }
 
 }
