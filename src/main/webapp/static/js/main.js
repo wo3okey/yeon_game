@@ -232,9 +232,6 @@ function checkHighScore(score) {
         const name = prompt('Put your name.');
         const newScore = score;
 
-        alert(name);
-        alert(newScore);
-
         // 4글자 이름
         if (name.length != 4) {
             alert("put Name just 4 length plz.");
